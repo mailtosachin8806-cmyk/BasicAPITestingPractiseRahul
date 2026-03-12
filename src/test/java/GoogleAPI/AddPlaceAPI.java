@@ -48,7 +48,6 @@ public class AddPlaceAPI {
 		Assert.assertEquals(newAddress, updatedAddress);
 		
 		
-		
 	}
 		
 }
