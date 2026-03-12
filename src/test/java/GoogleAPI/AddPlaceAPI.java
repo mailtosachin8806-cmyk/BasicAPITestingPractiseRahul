@@ -44,7 +44,7 @@ public class AddPlaceAPI {
 		
 		JsonPath js1 = new JsonPath(getPlaceResponse);
 		String updatedAddress = js1.getString("address");
-		System.out.println("THe updated address is : " + updatedAddress);
+		System.out.println("The updated address is : " + updatedAddress);
 		Assert.assertEquals(newAddress, updatedAddress);
 		
 		
