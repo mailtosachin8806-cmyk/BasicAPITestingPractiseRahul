@@ -47,18 +47,18 @@ public class dynamicJson {
 		
 		RestAssured.baseURI = "https://rahulshettyacademy.com";	
 		String MultipleBookResponse	= given().log().all().header("Content-Type", "application/json")
-			.body(payload.AddBook(isbn,aisle))
-			.when().post("/Library/Addbook.php").then().assertThat().log().all()
-			.statusCode(200).extract().response().asString();
+		.body(payload.AddBook(isbn,aisle))
+		.when().post("/Library/Addbook.php").then().assertThat().log().all()
+		.statusCode(200).extract().response().asString();
 			
-		 js	= new JsonPath(MultipleBookResponse); 
+		js = new JsonPath(MultipleBookResponse); 
 		String ID = js.get("ID");
 		System.out.println(ID);
 		
 		// Delete book API
 		
 		String DeleteAPIResponse  =  given().log().all().header("Content-Type", "application/json")
-				.body(payload.deleteBook(ID))
+		.body(payload.deleteBook(ID))
 		.when().delete("/Library/DeleteBook.php").then().assertThat()
 		.log().all().statusCode(200).extract().response().asString();
 		
