@@ -17,7 +17,7 @@ import io.restassured.path.json.JsonPath;
 public class deserialization {
 
 	/*
-	 * Implementation of Deserialization
+	 * Implementation of DeSerialization
 	 */
 	@Test
 	public void handleDeserialization() {
