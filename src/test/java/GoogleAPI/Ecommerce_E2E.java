@@ -23,7 +23,8 @@ public class Ecommerce_E2E {
 	public void handleEccomerceE2E() {
 		
 	RequestSpecification req =	new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").setContentType(ContentType.JSON).build();
-		
+	
+	//Achive Serialization
 	LoginRequest loginRequest = new LoginRequest();
 	loginRequest.setUserEmail("gharsele96@gmail.com");
 	loginRequest.setUserPassword("Sachin@0014");
@@ -31,6 +32,7 @@ public class Ecommerce_E2E {
 	RequestSpecification reqLogin 	= given().log().all().spec(req).body(loginRequest);
 	LoginResponse loginResponse = reqLogin.when().post("/api/ecom/auth/login").then().log().all().extract().response().as(LoginResponse.class);
 	
+	//Achive Deserialization
 	System.out.println(loginResponse.getToken());
 	String token = loginResponse.getToken();
 	System.out.println(loginResponse.getUserId());
