@@ -49,7 +49,8 @@ public class Ecommerce_E2E {
 	.formParam("productDescription", "Addias Originals").formParam("productFor", "women")
 	.multiPart("productImage",new File("G://APIAutomation//Adidas_Shoes.png"));
 	
-	String addProductResponse  =reqAddProduct.when().post("/api/ecom/product/add-product").then().log().all().extract().response().asString();
+	String addProductResponse  = reqAddProduct.when().post("/api/ecom/product/add-product").then()
+								.log().all().extract().response().asString();
 	
 	JsonPath js = new JsonPath(addProductResponse);
 	String productID = js.get("productId");
