@@ -21,7 +21,8 @@ public class Ecommerce_E2E {
 	
 	@Test
 	public void handleEccomerceE2E() {
-		
+	
+	//Generate a token 
 	RequestSpecification req =	new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").setContentType(ContentType.JSON).build();
 	
 	//Achive Serialization
