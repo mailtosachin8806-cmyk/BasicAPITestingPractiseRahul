@@ -78,6 +78,18 @@ public class Ecommerce_E2E {
 	
 	System.out.println(responseAddOrder);
 	
+	//Get order details
+	
+	RequestSpecification getOrderBaseReq = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addHeader("Authorization", token)
+			.build();
+	
+	RequestSpecification getOrderDetails = given().log().all().spec(getOrderBaseReq).queryParam("Add User ID", userID);
+	String responseOrderDetails = getOrderDetails.when().get("/api/ecom/order/get-orders-details").then().log().all().extract().response().asString();
+	
+	JsonPath js2 = new JsonPath(responseOrderDetails);
+	System.out.println(js2.getString("message"));
+	
+	
 	//Delete the product
 	
 	RequestSpecification deleteProdBaseReq = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
